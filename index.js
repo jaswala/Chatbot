@@ -5,7 +5,7 @@ const APIKEY = require('./api.js');
 const http = require('http');
 
 var {mongoose} = require('./db/mongoose');
-var {Data} = require('./models/data');
+//var {Data} = require('./models/data');
 
 
 const server = express();
@@ -15,19 +15,19 @@ server.use(bodyParser.urlencoded({
 
 server.use(bodyParser.json());
 
-server.post('/DataTalk', (req, res) => {
+// server.post('/DataTalk', (req, res) => {
     
     //console.log(req.body.queryResult.parameters);
 
     //get web_id parameter
-    const parameter = req.body.queryResult.parameters
-    const web_id = (parameter["Web-ID"]);
-    console.log(web_id);
-      //get date parameters
-      const startDate = parameter["date-period"]["startDate"];
-      const endDate = parameter["date-period"]["endDate"];
-      console.log(startDate);
-      console.log(endDate);
+    // const parameter = req.body.queryResult.parameters
+    // const web_id = (parameter["Web-ID"]);
+    // console.log(web_id);
+    //   //get date parameters
+    //   const startDate = parameter["date-period"]["startDate"];
+    //   const endDate = parameter["date-period"]["endDate"];
+    //   console.log(startDate);
+    //   console.log(endDate);
       
     //   server.get('/data', (req, res) => {
     //     Data.find().limit(5).then((Session_Summary) => {
@@ -37,15 +37,18 @@ server.post('/DataTalk', (req, res) => {
     //         console.log('unable to fetch data');
     //     })});
 
- });
+//  });
 
     // server.get('/data', (req, res) => {
-    // Data.find().limit(5).then((Session_Summary) => {
-    //     res.send({Session_Summary});
+    // Data.find().limit(5).then((FORM_PERFORMANCE_LEADS_DAILY_V1) => {
+    //     res.send({FORM_PERFORMANCE_LEADS_DAILY_V1});
     //     console.log('results for from collections');
     // }, (err) => {
     //     console.log('unable to fetch data');
     // })});
+
+var routes = require('./API/Routes/Router'); //importing route
+routes(server); //register the route
 
 server.listen((process.env.PORT || 8000), () => {
     console.log("Server is up and running...");

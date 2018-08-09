@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var Session_Summary = new mongoose.Schema({
+var FORM_PERFORMANCE_LEADS_DAILY_V1 = new mongoose.Schema({
     web_id: {
         type: String,
         required: true
@@ -63,6 +63,6 @@ var Session_Summary = new mongoose.Schema({
 
 });
 
-var Data = mongoose.model('Session_Summary', Session_Summary ,'Session_Summary');
+var Data = mongoose.model('FORM_PERFORMANCE_LEADS_DAILY_V1', FORM_PERFORMANCE_LEADS_DAILY_V1 ,'FORM_PERFORMANCE_LEADS_DAILY_V1');
 
 module.exports = {Data};
